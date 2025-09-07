@@ -1,0 +1,36 @@
+#!/bin/env bash
+
+RST="\033[0m"
+RED="\033[0;31m"
+GRE="\033[0;32m"
+YEL="\033[0;33m"
+BLK="\033[0;30m"
+BGRE="\033[42m"
+BYEL="\033[43m"
+
+PS1errorscheme() {
+        ( [ $sq -eq "0" ] && echo -en "${GRE}•❱${RST}" ) ||\
+        ( [ $sq -eq "1" ] && echo -en "${RED}•❱${RST}" ) ||\
+        ( echo -en "${YEL}•❱${RST}" )
+}
+PS1gitcheck() {
+        local n= e=$(pwd)
+        for d in ${e//\// }; do
+                n=$n/$d
+                [[ -d $n/.git ]] && return 0
+        done
+        return 1
+}
+PS1gittrack() {
+        echo -en "${BLK}${BGRE} $(git ls-files --others --exclude-standard | wc -l) "
+        echo -en "${BYEL} $(git status -s -uno | wc -l) "
+}
+PROMPT_COMMAND='sq=$?'
+export PS1=\
+"\$(PS1gitcheck &&\
+echo -n '${RED}⧛$(git config --get user.name)⧚${RST} '&& PS1gittrack)${RST}\
+ ${GRE}\w${RST}\n\$(PS1errorscheme) "
+
+export PS2="» "
+export PS3="··› "
+export PS4="$RED┃ $RST"
