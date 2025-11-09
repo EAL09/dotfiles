@@ -12,3 +12,18 @@
 	<dd>PS1-4 prompt, with git status <b>(slow)</b></dd>
 </dl>
 </details>
+
+
+<details>
+	<summary>
+		<h4>Nano</h4>
+	</summary>
+<dl>
+	<dt><code>.nanorc</code></dt>
+	<dd>Configuration for Nano editor</dd>
+	<dt><code>.nano/</code></dt>
+	<dd>Folder containing
+	<a href="https://github.com/galenguyer/nano-syntax-highlighting">syntax highlighting files</a></dd>
+</dl>
+The configuration also uses files from <code>/usr/share/nano/*.nanorc</code>
+</details>
