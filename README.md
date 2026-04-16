@@ -3,7 +3,7 @@
 
 <details>
 	<summary>
-		<h4>Bash</h4>
+		Bash
 	</summary>
 <dl>
 	<dt><code>.bash_profile</code></dt>
@@ -13,10 +13,9 @@
 </dl>
 </details>
 
-
 <details>
 	<summary>
-		<h4>Nano</h4>
+		Nano
 	</summary>
 <dl>
 	<dt><code>.nanorc</code></dt>
@@ -25,5 +24,16 @@
 	<dd>Folder containing
 	<a href="https://github.com/galenguyer/nano-syntax-highlighting">syntax highlighting files</a></dd>
 </dl>
+</details>
+
+<details>
+	<summary>
+		Tmux
+	</summary>
+<dl>
+	<dt><code>.tmux.conf</code></dt>
+	<dd>Copied some stuff from  <a href="https://hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/#changing-the-look-of-tmux">Ham Vocke's</a></dd> 
+</dl>
+
 The configuration also uses files from <code>/usr/share/nano/*.nanorc</code>
 </details>
