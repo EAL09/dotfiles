@@ -15,14 +15,12 @@ if [[ "$1" == "down" ]]; then penpot_down; fi
 
 
 # Run docker if it isn't already
-[[ ! -S $docker_sock  ]] &&
-	{ exec dockerd 1> /dev/null 2> /dev/null & disown; sleep 1 ;}
+[[ ! -S $docker_sock  ]] &&\
+	{ echo "starting dockerd";
+	exec dockerd 1> /dev/null 2> /dev/null & disown;
+	sleep 1 ;}
 
 
 if [ $(docker ps --filter "name=penpot" | wc -l) -ge 1 ];
 	then $(docker compose -f "$compose_path" up -d);
 fi
-
-
-# todo:
-# Add arguments for taking the thing down
